@@ -174,26 +174,26 @@ def show_crypto_page(crypto_name):
         st.metric("30-Day High", f"${df['Price'].max():,.2f}")
     
     # Prediction section
-    st.subheader("🔮 Price Prediction")
+    st.subheader("Price Prediction")
     st.write("Click the button below to predict the next day's HIGH price using our AI model.")
     
-    if st.button(f"🚀 Predict Next Day's Price for {crypto_name}", key=f"predict_{crypto_name}"):
+    if st.button(f"Predict Next Day's Price for {crypto_name}", key=f"predict_{crypto_name}"):
         # Check if API endpoint is available
         if API_ENDPOINTS[crypto_name] is None:
-            st.warning(f"⚠️ Prediction API for {crypto_name} is not yet available. Coming soon!")
+            st.warning(f"Prediction API for {crypto_name} is not yet available. Coming soon!")
             return
         
         with st.spinner('Fetching prediction...'):
             result = predict_next_day_price(crypto_name)
             
             if 'error' in result:
-                st.error(f"❌ Error: {result['error']}")
-                st.info("💡 The API might be warming up or the endpoint needs to be configured. Please try again in a moment.")
+                st.error(f"Error: {result['error']}")
+                st.info("The API might be warming up or the endpoint needs to be configured. Please try again in a moment.")
             else:
-                st.success("✅ Prediction retrieved successfully!")
+                st.success("Prediction retrieved successfully!")
                 
                 # Display prediction results in a nice layout
-                st.markdown("### 📊 Prediction Results")
+                st.markdown("### Prediction Results")
                 
                 # Handle different API response formats
                 # Bitcoin API format: detailed with prediction.predicted_high_price
@@ -230,22 +230,22 @@ def show_crypto_page(crypto_name):
                     col4, col5 = st.columns(2)
                     
                     with col4:
-                        st.markdown("**📅 Prediction Details**")
+                        st.markdown("**Prediction Details**")
                         if 'prediction_date' in prediction_data:
-                            st.write(f"🗓️ **Prediction Date:** {prediction_data['prediction_date']}")
+                            st.write(f"**Prediction Date:** {prediction_data['prediction_date']}")
                         if 'current_date' in current_data:
-                            st.write(f"📍 **Current Date:** {current_data['current_date']}")
+                            st.write(f"**Current Date:** {current_data['current_date']}")
                         current_high = current_data.get('current_high_price')
                         if current_high:
-                            st.write(f"📈 **Current HIGH:** ${current_high:,.2f}")
+                            st.write(f"**Current HIGH:** ${current_high:,.2f}")
                     
                     with col5:
-                        st.markdown("**🤖 Model Information**")
+                        st.markdown("**Model Information**")
                         model_info = result.get('model_info', {})
                         if model_info:
-                            st.write(f"🧠 **Model:** {model_info.get('model_type', 'N/A')}")
-                            st.write(f"📊 **Features Used:** {model_info.get('features_used', 'N/A')}")
-                            st.write(f"📡 **Data Source:** {model_info.get('data_source', 'N/A')}")
+                            st.write(f"**Model:** {model_info.get('model_type', 'N/A')}")
+                            st.write(f"**Features Used:** {model_info.get('features_used', 'N/A')}")
+                            st.write(f"**Data Source:** {model_info.get('data_source', 'N/A')}")
                 
                 elif 'predicted_high_tomorrow' in result:
                     # Ethereum API format (simple)
@@ -262,8 +262,8 @@ def show_crypto_page(crypto_name):
                     
                     with col2:
                         if 'timestamp' in result:
-                            st.write(f"🕐 **Timestamp:** {result['timestamp']}")
-                        st.write(f"🪙 **Token:** {result.get('token', crypto_name)}")
+                            st.write(f"**Timestamp:** {result['timestamp']}")
+                        st.write(f"**Token:** {result.get('token', crypto_name)}")
                     
                     # Calculate potential change from current price
                     if len(df) > 0:
@@ -285,7 +285,7 @@ def show_crypto_page(crypto_name):
 
 def show_about_page():
     """Display About page"""
-    st.title("ℹ️ About Crypto Investing Analyzer")
+    st.title("About Crypto Investing Analyzer")
     
     st.markdown("""
     ## Welcome to Crypto Investing Analyzer!
@@ -293,9 +293,9 @@ def show_about_page():
     This application helps you analyze and predict cryptocurrency prices using advanced AI models.
     
     ### Features:
-    - 📊 **Historical Price Charts**: View 30-day price history for major cryptocurrencies
-    - 🔮 **AI-Powered Predictions**: Get next-day HIGH price predictions
-    - 💡 **Real-time Data**: Access up-to-date market information
+    - **Historical Price Charts**: View 30-day price history for major cryptocurrencies
+    - **AI-Powered Predictions**: Get next-day HIGH price predictions
+    - **Real-time Data**: Access up-to-date market information
     
     ### Supported Cryptocurrencies:
     - **Bitcoin (BTC)**: The first and most valuable cryptocurrency
@@ -318,7 +318,7 @@ def show_about_page():
     
     ---
     
-    ⚠️ **Disclaimer**: This tool is for educational purposes only. Cryptocurrency investments carry risk. 
+    **Disclaimer**: This tool is for educational purposes only. Cryptocurrency investments carry risk. 
     Always do your own research before making investment decisions.
     """)
 
@@ -360,7 +360,7 @@ def main():
     
     st.sidebar.markdown("---")
     
-    if st.sidebar.button("ℹ️ About", use_container_width=True):
+    if st.sidebar.button("About", use_container_width=True):
         st.session_state.page = 'About'
     
     # Display selected page
