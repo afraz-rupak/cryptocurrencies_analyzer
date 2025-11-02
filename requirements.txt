@@ -1,4 +1,8 @@
 pip
 python-dotenv
 ruff
+streamlit
+requests
+pandas
+plotly
 -e .
