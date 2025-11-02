@@ -27,7 +27,7 @@ st.markdown("""
 API_ENDPOINTS = {
     'Bitcoin': 'https://crypto-investing.onrender.com/predict/bitcoin',
     'Ethereum': 'https://cryptocurrency-fastapi-11.onrender.com/predict/ETH',
-    'XRP': None,  # To be added
+    'XRP': 'https://ripple-predict-api.onrender.com/predict/XRP',
     'Solana': None  # To be added
 }
 
@@ -103,14 +103,19 @@ def fetch_historical_data(crypto_name):
 def predict_next_day_price(crypto_name):
     """Call the API to predict next day's price"""
     try:
-        # Adjust the endpoint based on your API structure
-        response = requests.get(API_ENDPOINTS[crypto_name], timeout=10)
+        # Use longer timeout for APIs that might be sleeping (Render free tier)
+        timeout = 60  # Increased from 10 to 60 seconds
+        response = requests.get(API_ENDPOINTS[crypto_name], timeout=timeout)
         
         if response.status_code == 200:
             data = response.json()
             return data
         else:
             return {"error": f"API returned status code {response.status_code}"}
+    except requests.exceptions.Timeout:
+        return {"error": "Request timed out. The API server might be warming up (this can take up to 60 seconds on free hosting). Please try again in a moment."}
+    except requests.exceptions.ConnectionError:
+        return {"error": "Connection error. Please check your internet connection or try again later."}
     except Exception as e:
         return {"error": str(e)}
 
@@ -277,6 +282,53 @@ def show_crypto_page(crypto_name):
                             st.metric("Current Price", f"${current_price:,.2f}")
                         with col4:
                             st.metric("Expected Change", f"${price_diff:,.2f}", f"{price_diff_pct:.2f}%")
+                
+                elif 'pred_high_tomorrow' in result:
+                    # XRP API format (detailed with log returns)
+                    col1, col2, col3 = st.columns(3)
+                    
+                    with col1:
+                        pred_high_tomorrow = result.get('pred_high_tomorrow')
+                        st.metric(
+                            "Predicted HIGH Price (Tomorrow)",
+                            f"${pred_high_tomorrow:,.4f}"
+                        )
+                    
+                    with col2:
+                        last_known_price = result.get('last_known_price')
+                        if last_known_price:
+                            st.metric("Last Known Price", f"${last_known_price:,.4f}")
+                    
+                    with col3:
+                        pred_high_today = result.get('pred_high_today')
+                        if pred_high_today:
+                            st.metric("Predicted HIGH (Today)", f"${pred_high_today:,.4f}")
+                    
+                    # Additional details
+                    st.markdown("---")
+                    col4, col5 = st.columns(2)
+                    
+                    with col4:
+                        st.markdown("**📅 Prediction Timeline**")
+                        if 'date_today' in result:
+                            st.write(f"🗓️ **Today's Date:** {result['date_today']}")
+                        if 'date_tomorrow' in result:
+                            st.write(f"🗓️ **Tomorrow's Date:** {result['date_tomorrow']}")
+                        if 'last_known_at' in result:
+                            st.write(f"🕐 **Last Updated:** {result['last_known_at']}")
+                    
+                    with col5:
+                        st.markdown("**📊 Log Returns**")
+                        pred_logrel_today = result.get('pred_logrel_today', 0)
+                        pred_logrel_tomorrow = result.get('pred_logrel_tomorrow', 0)
+                        st.write(f"📈 **Today's Log Return:** {pred_logrel_today:.4f}")
+                        st.write(f"📈 **Tomorrow's Log Return:** {pred_logrel_tomorrow:.4f}")
+                        
+                        # Calculate expected change percentage
+                        if last_known_price and pred_high_tomorrow:
+                            price_diff = pred_high_tomorrow - last_known_price
+                            price_diff_pct = (price_diff / last_known_price) * 100
+                            st.write(f"💹 **Expected Change:** {price_diff_pct:+.2f}%")
                 
                 else:
                     # Unknown format - display raw JSON
