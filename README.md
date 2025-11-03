@@ -10,18 +10,24 @@ A comprehensive Streamlit web application for analyzing cryptocurrency prices an
 ![Streamlit](https://img.shields.io/badge/Streamlit-1.0+-red.svg)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 
-## 🚀 Features
+## Live Demo
 
-- **📊 Real-Time Price Charts**: Interactive candlestick charts with 30-day historical OHLC (Open, High, Low, Close) data from Kraken API
-- **🔮 AI Price Predictions**: Machine learning-powered predictions for next-day HIGH prices
-- **💰 Multi-Cryptocurrency Support**: Bitcoin (BTC), Ethereum (ETH), XRP, and Solana (SOL)
-- **📈 Price Metrics**: Current price, 24-hour change, 30-day high, and predicted returns
-- **🎨 Professional UI**: Clean, intuitive interface with cryptocurrency logos and icons
-- **⚡ Fast & Responsive**: Built with Streamlit for smooth, real-time updates
-- **🔄 Automatic Data Fetching**: All prediction APIs automatically fetch latest market data
-- **📊 Multiple Display Formats**: Each cryptocurrency shows predictions in its optimal format
+**Try the app now:** [https://cryptocurrenciesanalyzer-h6h4ghehcecedsvge4shve.streamlit.app/](https://cryptocurrenciesanalyzer-h6h4ghehcecedsvge4shve.streamlit.app/)
 
-## 🖼️ App Interface
+The application is deployed and running on Streamlit Cloud. Click the link above to start analyzing cryptocurrency prices and get AI-powered predictions instantly!
+
+## Features
+
+- **Real-Time Price Charts**: Interactive candlestick charts with 30-day historical OHLC (Open, High, Low, Close) data from Kraken API
+- **AI Price Predictions**: Machine learning-powered predictions for next-day HIGH prices
+- **Multi-Cryptocurrency Support**: Bitcoin (BTC), Ethereum (ETH), XRP, and Solana (SOL)
+- **Price Metrics**: Current price, 24-hour change, 30-day high, and predicted returns
+- **Professional UI**: Clean, intuitive interface with cryptocurrency logos and icons
+- **Fast & Responsive**: Built with Streamlit for smooth, real-time updates
+- **Automatic Data Fetching**: All prediction APIs automatically fetch latest market data
+- **Multiple Display Formats**: Each cryptocurrency shows predictions in its optimal format
+
+## App Interface
 
 The app features:
 - **Sidebar Navigation**: Cryptocurrency icons with buttons for easy switching
@@ -30,7 +36,7 @@ The app features:
 - **AI Prediction Panel**: One-click prediction interface with detailed results
 - **Multiple Data Views**: Tailored display for each cryptocurrency's API format
 
-## 🛠️ Installation
+## Installation
 
 ### Prerequisites
 - Python 3.10 or higher
@@ -58,7 +64,7 @@ The app features:
 4. **Open in browser**
    The app will automatically open at `http://localhost:8501`
 
-## 📦 Dependencies
+## Dependencies
 
 - **streamlit** - Web application framework for creating interactive dashboards
 - **requests** - HTTP library for API calls to prediction and market data services
@@ -71,7 +77,7 @@ Install all dependencies with:
 pip install streamlit requests pandas plotly python-dotenv
 ```
 
-## 🎯 How to Use
+## How to Use
 
 1. **Select a Cryptocurrency**: Click on Bitcoin, Ethereum, XRP, or Solana in the sidebar navigation
 2. **View Historical Data**: Explore the interactive candlestick chart showing 30 days of price history
@@ -82,7 +88,7 @@ pip install streamlit requests pandas plotly python-dotenv
 4. **Get AI Predictions**: Click the "Predict Next Day's Price" button to get forecasts
 5. **Analyze Results**: Review predicted HIGH price, expected change, model information, and log returns
 
-## 🔌 API Integrations
+## API Integrations
 
 ### Market Data - Kraken Exchange API
 - **Base URL**: `https://api.kraken.com/0/public/`
@@ -94,7 +100,7 @@ pip install streamlit requests pandas plotly python-dotenv
 
 ### Prediction APIs
 
-#### 🟠 Bitcoin (BTC)
+#### Bitcoin (BTC)
 - **API URL**: `https://crypto-investing.onrender.com/`
 - **Prediction Endpoint**: `https://crypto-investing.onrender.com/predict/bitcoin`
 - **Method**: GET
@@ -115,7 +121,7 @@ pip install streamlit requests pandas plotly python-dotenv
 - **Data Source**: Yahoo Finance (BTC-USD)
 - **GitHub Repository**: [Crypto_Investing](https://github.com/afraz-rupak/Crypto_Investing)
 
-#### 🔵 Ethereum (ETH)
+#### Ethereum (ETH)
 - **API URL**: `https://cryptocurrency-fastapi-11.onrender.com/`
 - **Prediction Endpoint**: `https://cryptocurrency-fastapi-11.onrender.com/predict/ETH`
 - **Method**: GET
@@ -124,7 +130,7 @@ pip install streamlit requests pandas plotly python-dotenv
 - **Output**: Predicted high price for tomorrow (formatted as currency string)
 - **GitHub Repository**: [cryptocurrency_fastAPI](https://github.com/disha193/cryptocurrency_fastAPI)
 
-#### 🔷 XRP (Ripple)
+#### XRP (Ripple)
 - **API URL**: `https://ripple-predict-api.onrender.com/`
 - **Prediction Endpoint**: `https://ripple-predict-api.onrender.com/predict/XRP`
 - **Method**: GET
@@ -138,7 +144,7 @@ pip install streamlit requests pandas plotly python-dotenv
 - **Output**: Price predictions with percentage change calculations
 - **GitHub Repository**: [Ripple-Predict-API](https://github.com/benedict-brunker/Ripple-Predict-API)
 
-#### 🟣 Solana (SOL)
+#### Solana (SOL)
 - **API URL**: `https://solana-forecast-api-1.onrender.com/`
 - **Prediction Endpoint**: `https://solana-forecast-api-1.onrender.com/predict/simple`
 - **Method**: GET
@@ -156,7 +162,7 @@ pip install streamlit requests pandas plotly python-dotenv
 - **Note**: Uses `/predict/simple` endpoint for automatic feature calculation
 - **GitHub Repository**: [solana-forecast-api](https://github.com/saifrahmania/solana-forecast-api)
 
-## 📊 Technical Details
+## Technical Details
 
 ### Data Processing
 - **Historical Prices**: Fetched from Kraken Exchange API with 1-day intervals
@@ -205,7 +211,7 @@ pip install streamlit requests pandas plotly python-dotenv
 - **API Unavailability**: Graceful fallback with user-friendly messages
 - **Data Validation**: Handles multiple API response formats automatically
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 cryptocurrencies_analyzer/
@@ -244,7 +250,7 @@ cryptocurrencies_analyzer/
     └── plots.py               <- Visualization code
 ```
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome! Here's how you can help:
 
@@ -264,21 +270,21 @@ Contributions are welcome! Here's how you can help:
 - Test your changes locally before submitting
 - Keep commits atomic and well-documented
 
-## 📝 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for full details.
 
 **MIT License Summary:**
-- ✅ Commercial use allowed
-- ✅ Modification allowed
-- ✅ Distribution allowed
-- ✅ Private use allowed
-- ⚠️ No warranty provided
-- ⚠️ No liability accepted
+- Commercial use allowed
+- Modification allowed
+- Distribution allowed
+- Private use allowed
+- No warranty provided
+- No liability accepted
 
 Copyright (c) 2025, AT3-group-18
 
-## 👥 Team & Contributors
+## Team & Contributors
 
 **Project Team:** AT3-group-18
 
@@ -288,20 +294,20 @@ Copyright (c) 2025, AT3-group-18
 - **XRP API**: [benedict-brunker](https://github.com/benedict-brunker) - [Ripple-Predict-API](https://github.com/benedict-brunker/Ripple-Predict-API)
 - **Solana API**: [saifrahmania](https://github.com/saifrahmania) - [solana-forecast-api](https://github.com/saifrahmania/solana-forecast-api)
 
-## ⚠️ Important Disclaimer
+## Important Disclaimer
 
 **PLEASE READ CAREFULLY:**
 
 This tool is for **educational and informational purposes only**. The predictions provided by this application are generated by machine learning models and should **NOT** be used as financial advice or as the sole basis for making investment decisions.
 
 **Key Points:**
-- 📉 **Cryptocurrency investments carry significant risk** - you can lose all invested capital
-- 🤖 **ML predictions are not guarantees** - past performance doesn't predict future results
-- 💡 **Always DYOR** (Do Your Own Research) before investing
-- 👨‍💼 **Consult financial professionals** for investment advice
-- ⚖️ **No liability** - developers and contributors are not responsible for financial losses
-- 🔮 **Predictions can be wrong** - use them as one data point among many
-- 📊 **Market volatility** - crypto markets are highly volatile and unpredictable
+- **Cryptocurrency investments carry significant risk** - you can lose all invested capital
+- **ML predictions are not guarantees** - past performance doesn't predict future results
+- **Always DYOR** (Do Your Own Research) before investing
+- **Consult financial professionals** for investment advice
+- **No liability** - developers and contributors are not responsible for financial losses
+- **Predictions can be wrong** - use them as one data point among many
+- **Market volatility** - crypto markets are highly volatile and unpredictable
 
 **By using this application, you acknowledge that:**
 1. You understand the risks of cryptocurrency trading
@@ -309,22 +315,22 @@ This tool is for **educational and informational purposes only**. The prediction
 3. You accept full responsibility for your investment choices
 4. The developers provide no warranty or guarantee of accuracy
 
-## 🔮 Future Enhancements
+## Future Enhancements
 
 ### Planned Features
-- [ ] 📊 Add more technical indicators to charts (Bollinger Bands, MACD, Volume overlays)
-- [ ] 🔔 Implement price alerts and email/SMS notifications
-- [ ] 📈 Add historical prediction accuracy tracking and performance metrics
-- [ ] 🪙 Support for more cryptocurrencies (Cardano, Polygon, BNB, etc.)
-- [ ] 📥 Export prediction results to CSV/PDF/Excel formats
-- [ ] 🌙 Dark mode theme option with toggle
-- [ ] 📅 Multi-day prediction forecasts (3-day, 7-day, 30-day)
-- [ ] 📱 Mobile-responsive improvements
-- [ ] 🔄 Real-time WebSocket price updates
-- [ ] 📊 Portfolio tracking and analysis features
-- [ ] 🤖 Model comparison views (side-by-side predictions)
-- [ ] 📈 Sentiment analysis integration (Twitter, Reddit)
-- [ ] 💹 Trading simulation / paper trading mode
+- [ ] Add more technical indicators to charts (Bollinger Bands, MACD, Volume overlays)
+- [ ] Implement price alerts and email/SMS notifications
+- [ ] Add historical prediction accuracy tracking and performance metrics
+- [ ] Support for more cryptocurrencies (Cardano, Polygon, BNB, etc.)
+- [ ] Export prediction results to CSV/PDF/Excel formats
+- [ ] Dark mode theme option with toggle
+- [ ] Multi-day prediction forecasts (3-day, 7-day, 30-day)
+- [ ] Mobile-responsive improvements
+- [ ] Real-time WebSocket price updates
+- [ ] Portfolio tracking and analysis features
+- [ ] Model comparison views (side-by-side predictions)
+- [ ] Sentiment analysis integration (Twitter, Reddit)
+- [ ] Trading simulation / paper trading mode
 
 ### Technical Improvements
 - [ ] Add caching for API responses
@@ -336,7 +342,7 @@ This tool is for **educational and informational purposes only**. The prediction
 - [ ] Implement user authentication and personalization
 - [ ] Add API key management for users
 
-## 📞 Support & Contact
+## Support & Contact
 
 ### Getting Help
 - **GitHub Issues**: [Open an issue](https://github.com/afraz-rupak/cryptocurrencies_analyzer/issues) for bugs or feature requests
@@ -359,7 +365,7 @@ We welcome feature suggestions! Please:
 3. Explain expected benefits
 4. Include mockups/wireframes if applicable
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 ### Technologies
 - [Streamlit](https://streamlit.io/) - Amazing framework for building data apps
@@ -380,7 +386,7 @@ We welcome feature suggestions! Please:
 
 ---
 
-## 🚀 Quick Start Commands
+## Quick Start Commands
 
 ```bash
 # Clone and setup
@@ -405,9 +411,9 @@ curl https://solana-forecast-api-1.onrender.com/health
 
 ---
 
-**Made with ❤️ by AT3-group-18 for the crypto community**
+**Made with love by AT3-group-18 for the crypto community**
 
-**⭐ If you find this project useful, please consider giving it a star on GitHub!**
+**If you find this project useful, please consider giving it a star on GitHub!**
 
 ---
 

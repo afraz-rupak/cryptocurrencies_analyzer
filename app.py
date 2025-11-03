@@ -7,7 +7,7 @@ from datetime import datetime, timedelta
 # Page configuration
 st.set_page_config(
     page_title="Crypto Investing Analyzer",
-    page_icon="💰",
+    page_icon="📈",
     layout="wide"
 )
 
@@ -309,26 +309,26 @@ def show_crypto_page(crypto_name):
                     col4, col5 = st.columns(2)
                     
                     with col4:
-                        st.markdown("**📅 Prediction Timeline**")
+                        st.markdown("**Prediction Timeline**")
                         if 'date_today' in result:
-                            st.write(f"🗓️ **Today's Date:** {result['date_today']}")
+                            st.write(f"**Today's Date:** {result['date_today']}")
                         if 'date_tomorrow' in result:
-                            st.write(f"🗓️ **Tomorrow's Date:** {result['date_tomorrow']}")
+                            st.write(f"**Tomorrow's Date:** {result['date_tomorrow']}")
                         if 'last_known_at' in result:
-                            st.write(f"🕐 **Last Updated:** {result['last_known_at']}")
+                            st.write(f"**Last Updated:** {result['last_known_at']}")
                     
                     with col5:
-                        st.markdown("**📊 Log Returns**")
+                        st.markdown("**Log Returns**")
                         pred_logrel_today = result.get('pred_logrel_today', 0)
                         pred_logrel_tomorrow = result.get('pred_logrel_tomorrow', 0)
-                        st.write(f"📈 **Today's Log Return:** {pred_logrel_today:.4f}")
-                        st.write(f"📈 **Tomorrow's Log Return:** {pred_logrel_tomorrow:.4f}")
+                        st.write(f"**Today's Log Return:** {pred_logrel_today:.4f}")
+                        st.write(f"**Tomorrow's Log Return:** {pred_logrel_tomorrow:.4f}")
                         
                         # Calculate expected change percentage
                         if last_known_price and pred_high_tomorrow:
                             price_diff = pred_high_tomorrow - last_known_price
                             price_diff_pct = (price_diff / last_known_price) * 100
-                            st.write(f"💹 **Expected Change:** {price_diff_pct:+.2f}%")
+                            st.write(f"**Expected Change:** {price_diff_pct:+.2f}%")
                 
                 else:
                     # Unknown format - display raw JSON
