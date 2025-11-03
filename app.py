@@ -28,7 +28,7 @@ API_ENDPOINTS = {
     'Bitcoin': 'https://crypto-investing.onrender.com/predict/bitcoin',
     'Ethereum': 'https://cryptocurrency-fastapi-11.onrender.com/predict/ETH',
     'XRP': 'https://ripple-predict-api.onrender.com/predict/XRP',
-    'Solana': None  # To be added
+    'Solana': 'https://solana-forecast-api-1.onrender.com/predict/simple'
 }
 
 # Cryptocurrency logo local paths
